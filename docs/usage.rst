@@ -1,4 +1,4 @@
-Usage
+QuickStart
 =====
 
 .. _installation:
@@ -12,9 +12,7 @@ To use Lumache, first install it using pip:
 
    (.venv) $ pip install circula
 
-# QuickStart
-------------
-## test
+All-in-one analysis example
 ------------
 
 To retrieve a list of random ingredients,
