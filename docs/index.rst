@@ -20,6 +20,6 @@ Contents
 
 .. toctree::
 
-   Home <self>
+   About Circula <self>
    usage
    api

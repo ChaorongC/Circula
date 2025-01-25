@@ -6,11 +6,13 @@ QuickStart
 Installation
 ------------
 
-To use Lumache, first install it using pip:
+To use Circula, first install it using pip or conda:
 
 .. code-block:: console
 
    (.venv) $ pip install circula
+   # or
+   (.venv) $ conda install -c conda-forge circula
 
 All-in-one analysis example
 ------------
