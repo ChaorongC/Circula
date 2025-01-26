@@ -9,10 +9,13 @@ Circula is a command-line toolkit for cell-free DNA analysis. It is designed to 
     :target: https://example-sphinx-basic.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. image:: ./images/intro_workflow.png
+.. image:: images/intro_workflow.png
     :alt: Circula workflow
     :align: center
 
+.. image:: intro_workflow.png
+    :alt: Circula workflow
+    :align: center
 
 Installation
 ------------
