@@ -19,12 +19,12 @@ Installation
 To use Circula, first install it using pip or conda:
 
 .. code-block:: console
+    $ pip install circula
 
-   (.venv) $ pip install circula
+OR
 
-# or
-
-   (.venv) $ conda install -c conda-forge circula
+.. code-block:: console
+    $ conda install -c conda-forge circula
 
 Check out the document `Circula <https://circula.readthedocs.io/en/latest/>`_ for further information.
 
