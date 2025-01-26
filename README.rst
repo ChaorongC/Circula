@@ -26,6 +26,6 @@ To use Circula, first install it using pip or conda:
 
    (.venv) $ conda install -c conda-forge circula
 
-Check out the document [Circula](https://circula.readthedocs.io/en/latest/) for further information.
+Check out the document `Circula <https://circula.readthedocs.io/en/latest/>`_ for further information.
 
 .. This README.rst should work on Github and is also included in the Sphinx documentation project in docs/ - therefore, README.rst uses absolute links for most things so it renders properly on GitHub

@@ -9,12 +9,12 @@ Installation
 To use Circula, first install it using pip or conda:
 
 .. code-block:: console
-
-   (.venv) $ pip install circula
+   $ pip install circula
 
 # or
+.. code-block:: console
 
-   (.venv) $ conda install -c conda-forge circula
+   $ conda install -c conda-forge circula
 
 Initial setup
 -------------
@@ -45,7 +45,7 @@ After the initialization, you can run the entire analysis pipeline with a single
 
 Power analysis example
 -----------------------
-This power analysis tool is designed to estimate the sample size required to achieve a desired power level for a given effect size. The power analysis tool is based on the [Twist Human Methylome Panel](https://www.twistbioscience.com/products/ngs/fixed-panels/human-methylome-panel)targets 3.98M CpG sites through 123 Mb of genomic content.
+This power analysis tool is designed to estimate the sample size required to achieve a desired power level for a given effect size. The power analysis tool is based on the `Twist Human Methylome Panel <https://www.twistbioscience.com/products/ngs/fixed-panels/human-methylome-panel>`_ targets 3.98M CpG sites through 123 Mb of genomic content.
 The follwing example shows how to estimate the power of biomarkers of 400 samples and a given effect size of 0.05. This command will output a power curve and a .tsv file containing the power analysis results.
 
 
