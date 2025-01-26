@@ -9,9 +9,11 @@ Installation
 To use Circula, first install it using pip or conda:
 
 .. code-block:: console
+
    $ pip install circula
 
-# or
+OR
+
 .. code-block:: console
 
    $ conda install -c conda-forge circula
@@ -40,8 +42,8 @@ After the initialization, you can run the entire analysis pipeline with a single
 .. code-block:: bash
 
    $ circula process ${input_r1} ${input_r2} -s 1 2 3 4 5 6 
-    --prefix 'test_S2' -@ 10
-    --trimgalore-args '--clip_R1 10 --clip_R2 10 --three_prime_clip_R1 5 --three_prime_clip_R2 5'
+      --prefix 'test_S2' -@ 10
+      --trimgalore-args '--clip_R1 10 --clip_R2 10 --three_prime_clip_R1 5 --three_prime_clip_R2 5'
 
 Power analysis example
 -----------------------
