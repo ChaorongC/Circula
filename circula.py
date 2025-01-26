@@ -39,6 +39,7 @@ def test_function(input='test', param2='test2'):
 
     Args:
         input (str, optional): _description_. Defaults to 'test'.
+        
         param2 (str, optional): _description_. Defaults to 'test2'.
 
     Returns:
