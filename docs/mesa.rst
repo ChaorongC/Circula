@@ -55,11 +55,3 @@ or ``"veggies"``. Otherwise, :py:func:`circula.get_random_ingredients`
 will raise an exception.
 
 .. autoexception:: circula.InvalidKindError
-
-For example:
-
->>> import lumache
->>> lumache.get_random_ingredients()
->>> ['shells', 'gorgonzola', 'parsley']
->>>
->>
