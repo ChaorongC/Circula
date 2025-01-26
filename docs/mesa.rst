@@ -1,4 +1,4 @@
-QuickStart
+Multimodal Epigenetic Sequence Analysis (MESA)
 ==========
 
 .. _installation:
@@ -42,23 +42,6 @@ After the initialization, you can run the entire analysis pipeline with a single
    $ circula process ${input_r1} ${input_r2} -s 1 2 3 4 5 6 
     --prefix 'test_S2' -@ 10
     --trimgalore-args '--clip_R1 10 --clip_R2 10 --three_prime_clip_R1 5 --three_prime_clip_R2 5'
-
-Power analysis example
------------------------
-This power analysis tool is designed to estimate the sample size required to achieve a desired power level for a given effect size. The power analysis tool is based on the [Twist Human Methylome Panel](https://www.twistbioscience.com/products/ngs/fixed-panels/human-methylome-panel)targets 3.98M CpG sites through 123 Mb of genomic content.
-The follwing example shows how to estimate the power of biomarkers of 400 samples and a given effect size of 0.05. This command will output a power curve and a .tsv file containing the power analysis results.
-
-
-.. code-block:: bash
-
-   $ # Sample size=400, effect size=0.05, significance threshold= 2.7e-08
-   $ circula power -o ./output -s 400 -e 0.05 --step-size 1000 -@ 10
-
-.. image:: https://github.com/ChaorongC/Circula/blob/main/docs/usage_power.png
-   :alt: Power analysis example
-   :width: 80%
-   
-
 
 To retrieve a list of random ingredients,
 you can use the ``circula.get_random_ingredients()`` function:
