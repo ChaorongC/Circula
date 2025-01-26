@@ -56,7 +56,7 @@ The follwing example shows how to estimate the power of biomarkers of 400 sample
    $ # Sample size=400, effect size=0.05, significance threshold= 2.7e-08
    $ circula power -o ./output -s 400 -e 0.05 --step-size 1000 -@ 10
 
-.. image:: images/power_analysis_example.png
+.. image:: ../images/power_analysis_example.png
    :alt: Power analysis example
    :width: 80%
    
