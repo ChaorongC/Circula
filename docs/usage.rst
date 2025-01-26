@@ -22,6 +22,8 @@ you can use the ``circula.get_random_ingredients()`` function:
 
 .. autofunction:: circula.get_random_ingredients
 
+.. autofunction:: circula.test_function
+
 The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
 or ``"veggies"``. Otherwise, :py:func:`circula.get_random_ingredients`
 will raise an exception.
