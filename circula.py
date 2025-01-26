@@ -32,3 +32,15 @@ def get_random_ingredients(kind=None):
     :rtype: list[str]
     """
     return ["shells", "gorgonzola", "parsley"]
+    
+
+def test_function(input='test'):
+    """_summary_
+
+    Args:
+        input (str, optional): _description_. Defaults to 'test'.
+
+    Returns:
+        _type_: test output
+    """    
+    return 'testing %s' % input
