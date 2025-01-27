@@ -1,11 +1,3 @@
-'''
- # @ Author: Chaorong Chen
- # @ Create Time: 2025-01-25 01:19:12
- # @ Modified by: Chaorong Chen
- # @ Modified time: 2025-01-26 17:41:12
- # @ Description:
- '''
-
 """
 Lumache - Python library for cooks and food lovers.
 

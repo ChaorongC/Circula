@@ -1,22 +1,51 @@
 Process
 ==========
 
-.. _installation:
+.. _process:
+Initial setup
+-------------
 
-Installation
+To initialize a Circula program, use the ``circula init`` command. This command will create a new Circula project in the specified directory. The ``-r`` flag is required to specify the reference genome. The ``--ref-index`` and ``--ref-dict`` flags are optional and will create the reference genome index and dictionary files, respectively. ``--ref-index`` and ``--ref-dict`` flags are required for the alignment step and can be skipped if the reference genome index and dictionary files are already available at the directory enclosing the reference genome.
+
+.. code-block:: bash
+
+   reference = 'path/to/reference_genome.fa'
+   project_dir = 'path/to/project_dir'
+
+   circula init -r ${reference} --ref-index --ref-dict -o ${project_dir}
+
+Single-step process
 ------------
+If not assigned, the default output directory is the directory defined in the initialization step: *path/to/project_dir*. 
 
-To use Circula, first install it using pip or conda:
+Each step can be run individually by specifying the step number with the ``-s`` flag an will output to its coreesponding directory, e.g. *trimming* will output to *path/to/project_dir/trimgalore_output*.
 
-.. code-block:: console
 
-   $ pip install circula
+1. Adapter trimmming (Trim Galore)
+   
+   .. code-block:: bash
 
-OR
+      circula process ${input_r1} ${input_r2} \
+       -s 1 --prefix 'test_trimming' -@ 2 \
+       --trimgalore-args '--clip_R1 10 --clip_R2 10 --three_prime_clip_R1 5 --three_prime_clip_R2 5'
 
-.. code-block:: console
+2. Genome alignment (bwa-meth)
+   .. code-block:: bash
 
-   $ conda install -c conda-forge circula
+      r1_trimmed='project_dir/trimgalore_outputtest_trimming_val_1.fq.gz'
+      r2_trimmed='project_dir/trimgalore_outputtest_trimming_val_2.fq.gz'
+
+      circula process ${r1_trimmed} ${r2_trimmed} \
+       -s 2 --prefix 'test_alignment' -@ 10
+
+3. Duplicate removal/marking (Picard)
+   .. code-block:: bash
+
+      r1_trimmed='test_trimming_val_1.fq.gz'
+      r2_trimmed='test_trimming_val_2.fq.gz'
+
+      circula process ${r1_trimmed} ${r2_trimmed} \
+       -s 2 --prefix 'test_alignment' -@ 10
 
 Initial setup
 -------------

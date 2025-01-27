@@ -25,6 +25,7 @@ To initialize a Circula program, use the ``circula init`` command. This command 
 
 .. code-block:: bash
 
+   reference = 'path/to/reference_genome.fa'
    circula init -r ${reference} --ref-index --ref-dict -o ./project_dir
 
 All-in-one analysis example
@@ -41,8 +42,9 @@ After the initialization, you can run the entire analysis pipeline with a single
 
 .. code-block:: bash
 
-   circula process ${input_r1} ${input_r2} -s 1 2 3 4 5 6 
-      --prefix 'test_S2' -@ 10
+   circula process ${input_r1} ${input_r2} \
+      -s 1 2 3 4 5 6 \
+      --prefix 'test_S2' -@ 10 \
       --trimgalore-args '--clip_R1 10 --clip_R2 10 --three_prime_clip_R1 5 --three_prime_clip_R2 5'
 
 Power analysis example
