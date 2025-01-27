@@ -1,3 +1,11 @@
+'''
+ # @ Author: Chaorong Chen
+ # @ Create Time: 2025-01-25 01:19:12
+ # @ Modified by: Chaorong Chen
+ # @ Modified time: 2025-01-26 17:41:12
+ # @ Description:
+ '''
+
 """
 Lumache - Python library for cooks and food lovers.
 
@@ -37,12 +45,16 @@ def get_random_ingredients(kind=None):
 def test_function(input='test', param2='test2'):
     """_summary_
 
-    Args:
-        input (str, optional): _description_. Defaults to 'test'.
-        
-        param2 (str, optional): _description_. Defaults to 'test2'.
+    Parameters
+    ----------
+    input : str, optional
+        _description_, by default 'test'
+    param2 : str, optional
+        _description_, by default 'test2'
 
-    Returns:
-        _type_: some output test
+    Returns
+    -------
+    _type_
+        _description_
     """
     return 'testing %s %s ' % (input,param2)
