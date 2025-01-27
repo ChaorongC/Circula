@@ -30,6 +30,7 @@ Each step can be run individually by specifying the step number with the ``-s`` 
        --trimgalore-args '--clip_R1 10 --clip_R2 10 --three_prime_clip_R1 5 --three_prime_clip_R2 5'
 
 2. Genome alignment (bwa-meth)
+   
    .. code-block:: bash
 
       r1_trimmed='project_dir/trimgalore_outputtest_trimming_val_1.fq.gz'
@@ -39,13 +40,40 @@ Each step can be run individually by specifying the step number with the ``-s`` 
        -s 2 --prefix 'test_alignment' -@ 10
 
 3. Duplicate removal/marking (Picard)
+   
    .. code-block:: bash
 
-      r1_trimmed='test_trimming_val_1.fq.gz'
-      r2_trimmed='test_trimming_val_2.fq.gz'
+      bam_input='project_dir/bwa_output/test_alignment.bam'
 
-      circula process ${r1_trimmed} ${r2_trimmed} \
-       -s 2 --prefix 'test_alignment' -@ 10
+      circula process ${bam_input} -s 3 --prefix 'test_markdup' -@ 10
+
+4. Methyltion extraction (MethylDackel)
+   
+   .. code-block:: bash
+
+      bam_input='project_dir/picard_output/test_markdup.markdup.bam'
+
+      circula process ${bam_input} -s 4 --prefix 'test_markdup' -@ 10
+
+5. Nucleosome occupancy calculation (DANPOS2)
+   
+   .. code-block:: bash
+
+      bam_input='project_dir/picard_output/test_markdup.markdup.bam'
+
+      circula process ${bam_markdup_input} -s 5 --prefix 'test_markdup' -@ 10
+
+6. Window protection score calculation
+By default, this process will calculate WPS for all 1kb regions around transcription start sites (TSS) and polyadenylation sites (PAS). If ``-r`` is assigned, only regions in the bed file input will be calculated.
+
+   .. code-block:: bash
+
+      bam_input='project_dir/picard_output/test_markdup.markdup.bam'
+      # default
+      circula process ${bam_markdup_input} -s 6 --prefix 'test_markdup' -@ 10
+      # Calculate WPS for assigned regions
+      circula process ${bam_markdup_input} -s 6 --prefix 'test_markdup' -@ 10 -r 'path/to/regions.bed'
+
 
 Initial setup
 -------------
