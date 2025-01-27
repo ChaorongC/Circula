@@ -109,3 +109,32 @@ Addtional arguments can be passed to each step using the corresponding flags, e.
        --trimgalore-args '--clip_R1 10 --clip_R2 10 --three_prime_clip_R1 5 --three_prime_clip_R2 5' \
        --bwameth_output_dir 'path/to/bwameth_output' \
        --methyldackel_output_dir 'path/to/methyldackel_output'
+
+
+Resume from a specific step
+---------------------------
+For example, when the process is interupted/failed at step 3 (Picard) or you want to start the processes from your aligned ``.bam`` file, simple use your aligned ``.bam`` file as input and specify the step number with the ``-s`` flag starting from ``step 3``.
+
+   .. code-block:: bash
+
+      bam_input='path/to/aligned.bam'
+
+      circula process ${bam_input} -s 3 4 5 6 --prefix 'test' -@ 20 \
+       --methyldackel_output_dir 'path/to/methyldackel_output' 
+
+Similarly, you can resume from any step by specifying the step number with the ``-s`` flag. Here, we directly calculate the methyaltion (``step 4``) and WPS(``step 6``) for the aligned ``.bam`` file.
+
+
+      .. code-block:: bash
+
+      bam_input='path/to/aligned.bam'
+
+      circula process ${bam_input} -s 4 6 --prefix 'test' -@ 20 \
+       --methyldackel_output_dir 'path/to/methyldackel_output' \
+       -r 'path/to/regions.bed'
+
+
+
+.. note::
+   
+   For more information on the available arguments for each step, check :doc:`api` section.
