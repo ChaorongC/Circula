@@ -15,31 +15,33 @@ To initialize a Circula program, use the ``circula init`` command. This command 
    circula init -r ${reference} --ref-index --ref-dict -o ${project_dir}
 
 Single-step process
-------------
+-------------------
 If not assigned, the default output directory is the directory defined in the initialization step: *path/to/project_dir*. 
 
 Each step can be run individually by specifying the step number with the ``-s`` flag an will output to its coreesponding directory, e.g. *trimming* will output to *path/to/project_dir/trimgalore_output*.
 
 
-1. Adapter trimmming (Trim Galore)
+**1. Adapter trimmming (Trim Galore)**
    
    .. code-block:: bash
+
+      input_r1='path/to/input_R1.fq.gz'
+      input_r2='path/to/input_R2.fq.gz'
 
       circula process ${input_r1} ${input_r2} \
        -s 1 --prefix 'test_trimming' -@ 2 \
        --trimgalore-args '--clip_R1 10 --clip_R2 10 --three_prime_clip_R1 5 --three_prime_clip_R2 5'
 
-2. Genome alignment (bwa-meth)
+**2. Genome alignment (bwa-meth)**
    
    .. code-block:: bash
 
       r1_trimmed='project_dir/trimgalore_outputtest_trimming_val_1.fq.gz'
       r2_trimmed='project_dir/trimgalore_outputtest_trimming_val_2.fq.gz'
 
-      circula process ${r1_trimmed} ${r2_trimmed} \
-       -s 2 --prefix 'test_alignment' -@ 10
+      circula process ${r1_trimmed} ${r2_trimmed} -s 2 --prefix 'test_alignment' -@ 10
 
-3. Duplicate removal/marking (Picard)
+**3. Duplicate removal/marking (Picard)**
    
    .. code-block:: bash
 
@@ -47,7 +49,7 @@ Each step can be run individually by specifying the step number with the ``-s`` 
 
       circula process ${bam_input} -s 3 --prefix 'test_markdup' -@ 10
 
-4. Methyltion extraction (MethylDackel)
+**4. Methyltion extraction (MethylDackel)**
    
    .. code-block:: bash
 
@@ -55,87 +57,55 @@ Each step can be run individually by specifying the step number with the ``-s`` 
 
       circula process ${bam_input} -s 4 --prefix 'test_markdup' -@ 10
 
-5. Nucleosome occupancy calculation (DANPOS2)
+
+**5. Nucleosome occupancy calculation (DANPOS2)**
    
-   .. code-block:: bash
-
-      bam_input='project_dir/picard_output/test_markdup.markdup.bam'
-
-      circula process ${bam_markdup_input} -s 5 --prefix 'test_markdup' -@ 10
-
-6. Window protection score calculation
-By default, this process will calculate WPS for all 1kb regions around transcription start sites (TSS) and polyadenylation sites (PAS). If ``-r`` is assigned, only regions in the bed file input will be calculated.
+   By default, this process will calculate occupacny for all 1kb regions around transcription start sites (TSS) and polyadenylation sites (PAS). If ``-r`` is assigned, only regions in the bed file input will be calculated.
 
    .. code-block:: bash
 
       bam_input='project_dir/picard_output/test_markdup.markdup.bam'
       # default
-      circula process ${bam_markdup_input} -s 6 --prefix 'test_markdup' -@ 10
+      circula process ${bam_input} -s 5 --prefix 'test_occupancy' -@ 10
       # Calculate WPS for assigned regions
-      circula process ${bam_markdup_input} -s 6 --prefix 'test_markdup' -@ 10 -r 'path/to/regions.bed'
+      circula process ${bam_input} -s 5 --prefix 'test_occupancy' -@ 10 -r 'path/to/regions.bed'
 
 
-Initial setup
--------------
+**6. Window protection score calculation**
 
-To initialize a Circula program, use the ``circula init`` command. This command will create a new Circula project in the specified directory. The ``-r`` flag is required to specify the reference genome. The ``--ref-index`` and ``--ref-dict`` flags are optional and will create the reference genome index and dictionary files, respectively. ``--ref-index`` and ``--ref-dict`` flags are required for the alignment step and can be skipped if the reference genome index and dictionary files are already available at the directory enclosing the reference genome.
+   By default, this process will calculate WPS for all 1kb regions around transcription start sites (TSS) and polyadenylation sites (PAS). If ``-r`` is assigned, only regions in the bed file input will be calculated.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   circula init -r ${reference} --ref-index --ref-dict -o ./project_dir
-
-All-in-one analysis example
----------------------------
-
-After the initialization, you can run the entire analysis pipeline with a single ``process`` command. The ``-s`` flag is required to specify the processing steps and is customizable based on the user's needs.
-
-1. Adapter trimmming (Trim Galore)
-2. Genome alignment (bwa-meth)
-3. Duplicate removal/marking (Picard)
-4. Methylation extraction (MethylDackel)
-5. Nuclosome occupancy calculation (DANPOS2)
-6. Window protection score calculation
-
-.. code-block:: bash
-
-   circula process ${input_r1} ${input_r2} -s 1 2 3 4 5 6 
-      --prefix 'test_S2' -@ 10
-      --trimgalore-args '--clip_R1 10 --clip_R2 10 --three_prime_clip_R1 5 --three_prime_clip_R2 5'
-
-Power analysis example
------------------------
-This power analysis tool is designed to estimate the sample size required to achieve a desired power level for a given effect size. The power analysis tool is based on the `Twist Human Methylome Panel <https://www.twistbioscience.com/products/ngs/fixed-panels/human-methylome-panel>`_ targets 3.98M CpG sites through 123 Mb of genomic content.
-The follwing example shows how to estimate the power of biomarkers of 400 samples and a given effect size of 0.05. This command will output a power curve and a .tsv file containing the power analysis results.
+      bam_input='project_dir/picard_output/test_markdup.markdup.bam'
+      # default
+      circula process ${bam_input} -s 6 --prefix 'test_wps' -@ 10
+      # Calculate WPS for assigned regions
+      circula process ${bam_input} -s 6 --prefix 'test_wps' -@ 10 -r 'path/to/regions.bed'
 
 
-.. code-block:: bash
 
-   # Sample size=400, effect size=0.05, significance threshold= 2.7e-08
-   circula power -o ./output -s 400 -e 0.05 --step-size 1000 -@ 10
+All-in-one process: from FASTQ file to epigenetic modalities calling
+-------------------------------------------------------------------
 
-.. image:: ../images/usage_power.png
-   :alt: Power analysis example
-   :width: 60%
-   
+Here is an example showing how to run the entire analysis pipeline with a single ``process`` command. The ``-s`` flag is required to specify the processing steps and is customizable based on the user's needs.
+Addtional arguments can be passed to each step using the corresponding flags, e.g. ``--trimgalore-args`` for the trimming step. Output directories can be customized, e.g. ``--bwameth_output_dir`` for the alignment step.
 
 
-To retrieve a list of random ingredients,
-you can use the ``circula.get_random_ingredients()`` function:
+   1. Adapter trimmming (Trim Galore)
+   2. Genome alignment (bwa-meth)
+   3. Duplicate removal/marking (Picard)
+   4. Methylation extraction (MethylDackel)
+   5. Nuclosome occupancy calculation (DANPOS2)
+   6. Window protection score calculation
 
-.. autofunction:: circula.get_random_ingredients
+   .. code-block:: bash
 
-.. autofunction:: circula.test_function
+      input_r1='path/to/input_R1.fq.gz'
+      input_r2='path/to/input_R2.fq.gz'
 
-The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
-or ``"veggies"``. Otherwise, :py:func:`circula.get_random_ingredients`
-will raise an exception.
-
-.. autoexception:: circula.InvalidKindError
-
-For example:
-
->>> import lumache
->>> lumache.get_random_ingredients()
->>> ['shells', 'gorgonzola', 'parsley']
->>>
->>
+      circula process ${input_r1} ${input_r2} \
+       -s 1 2 3 4 5 6 --prefix 'test' -@ 20 \
+       --trimgalore-args '--clip_R1 10 --clip_R2 10 --three_prime_clip_R1 5 --three_prime_clip_R2 5' \
+       --bwameth_output_dir 'path/to/bwameth_output' \
+       --methyldackel_output_dir 'path/to/methyldackel_output'
