@@ -124,8 +124,7 @@ For example, when the process is interupted/failed at step 3 (Picard) or you wan
 
 Similarly, you can resume from any step by specifying the step number with the ``-s`` flag. Here, we directly calculate the methyaltion (``step 4``) and WPS(``step 6``) for the aligned ``.bam`` file.
 
-
-      .. code-block:: bash
+   .. code-block:: bash
 
       bam_input='path/to/aligned.bam'
 
@@ -137,4 +136,4 @@ Similarly, you can resume from any step by specifying the step number with the `
 
 .. note::
    
-   For more information on the available arguments for each step, check :doc:`api` section.
+   For more information on the available arguments for each step, check :doc:`api` section or check with ``--help``.
