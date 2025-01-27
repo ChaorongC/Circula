@@ -1,4 +1,4 @@
-QuickStart
+Basic QC
 ==========
 
 .. _installation:

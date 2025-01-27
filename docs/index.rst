@@ -39,5 +39,8 @@ Contents
 
    About Circula <self>
    usage
-   api
+   process
+   qc
+   power
    mesa
+   api

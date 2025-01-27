@@ -1,4 +1,4 @@
-QuickStart
+Process
 ==========
 
 .. _installation:

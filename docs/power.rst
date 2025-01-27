@@ -1,4 +1,4 @@
-QuickStart
+Power analysis
 ==========
 
 .. _installation:
