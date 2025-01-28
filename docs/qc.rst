@@ -34,8 +34,12 @@ Dinucleotide frequency
 ----------------------
 
    .. code-block:: bash
-
-      bam_input='path/to/test_fragment_length.bam'
+      ref = 'path/to/reference_genome.fa'
+      bam_input1='path/to/test_dinucleotide_frequqncy1.bam'
+      bam_input2='path/to/test_dinucleotide_frequqncy2.bam'
       # check dinucleotide frequency for all 167bp fragments
-      circula qc -s 3 ${bam_input} -f 167 -o ./fragment_len_dist.tsv
+      circula qc -s 3 -f 166 -o ./output/dinucleotide_frequency_dist.png -@ 8 -r ${ref} ${bam_input1} ${bam_input2}
 
+   .. image:: ../images/qc_dinucleotide_dist.png
+      :alt: dinucleotide frequency distribution plot
+      :width: 60%
