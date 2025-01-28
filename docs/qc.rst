@@ -34,6 +34,7 @@ Dinucleotide frequency
 ----------------------
 
    .. code-block:: bash
+      
       ref = 'path/to/reference_genome.fa'
       bam_input1='path/to/test_dinucleotide_frequqncy1.bam'
       bam_input2='path/to/test_dinucleotide_frequqncy2.bam'
