@@ -9,7 +9,7 @@ Methylation distribution
       methylation_matrix='path/to/methylation_matrix.tsv'
       circula qc -s 1 ${methylation_matrix} -o ./methyaltion_dist.png
 
-   .. image:: ../images/qc_methylation_dist.png
+   .. image:: images/qc_methylation_dist.png
       :alt: Methyaltion distribution plot
       :width: 60%
 
@@ -18,10 +18,17 @@ Fragment length distribution
 
    .. code-block:: bash
 
-      bam_input='path/to/test_fragment_length.bam'
-      circula qc -s 2 ${bam_input} -o ./fragment_len_dist.png
+      bam_input1='path/to/test_fragment_length1.bam'
+      bam_input2='path/to/test_fragment_length2.bam'
+      # Plot fragment length distribution for single bam file
+      circula qc -s 2 -o ./output/frag_dist.png -@ 5 --title 'test_fragment_dist' ${bam_input1} 
+      # Plot average fragment length distribution for multiple bam files
+      circula qc -s 2 -o ./output/frag_dist.png -@ 5 --title 'test_fragment_dist' ${bam_input1} ${bam_input2}
 
 
+   .. image:: images/qc_fragment_dist.png
+      :alt: fragment length distribution plot
+      :width: 60%
 
 Dinucleotide frequency
 ----------------------
