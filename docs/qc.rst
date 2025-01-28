@@ -9,6 +9,9 @@ Methylation distribution
       methylation_matrix='path/to/methylation_matrix.tsv'
       circula qc -s 1 ${methylation_matrix} -o ./methyaltion_dist.png
 
+   .. image:: ../images/qc_methylation_dist.png
+      :alt: Methyaltion distribution plot
+      :width: 60%
 
 Fragment length distribution
 ----------------------------
@@ -17,6 +20,7 @@ Fragment length distribution
 
       bam_input='path/to/test_fragment_length.bam'
       circula qc -s 2 ${bam_input} -o ./fragment_len_dist.png
+
 
 
 Dinucleotide frequency
