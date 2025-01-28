@@ -9,7 +9,7 @@ Methylation distribution
       methylation_matrix='path/to/methylation_matrix.tsv'
       circula qc -s 1 ${methylation_matrix} -o ./methyaltion_dist.png
 
-   .. image:: images/qc_methylation_dist.png
+   .. image:: ../images/qc_methylation_dist.png
       :alt: Methyaltion distribution plot
       :width: 60%
 
@@ -26,7 +26,7 @@ Fragment length distribution
       circula qc -s 2 -o ./output/frag_dist.png -@ 5 --title 'test_fragment_dist' ${bam_input1} ${bam_input2}
 
 
-   .. image:: images/qc_fragment_dist.png
+   .. image:: ../images/qc_fragment_dist.png
       :alt: fragment length distribution plot
       :width: 60%
 
