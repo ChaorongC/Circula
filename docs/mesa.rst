@@ -29,3 +29,21 @@ The ``--clf`` option can be used to specify the classifier(s) to be used for the
    :header-rows: 1
    :align: center
    :delim: \t
+
+.. csv-table:: mesa_modality_performance.tsv
+   :file: ./ mesa_modality_performance.tsv
+   :header-rows: 1
+   :align: center
+   :delim: '\t'
+
+.. csv-table:: mesa_modality_performance.tsv
+   :file: ./ mesa_modality_performance.tsv
+   :header-rows: 1
+   :align: center
+   :delim: '	'
+
+.. csv-table:: mesa_modality_performance.tsv
+   :file: ./ mesa_modality_performance.tsv
+   :header-rows: 1
+   :align: center
+   :delim: "	"
