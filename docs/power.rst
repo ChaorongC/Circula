@@ -16,10 +16,14 @@ The follwing example shows how to estimate the power of biomarkers of 400 sample
    :alt: Power analysis example
    :width: 60%
    :align: center
+
+.. figure:: ../images/usage_power.png
+   :class: with-border
+   :alt: Power analysis example
+   :align: center
+   :width: 60%
    
-   **Figure 1:** power_analysis_ecdf_plot.png
-
-
+   power_analysis_ecdf_plot.png.
 
 .. csv-table:: power_analysis_effect_size_cumulative_dist.tsv
    :file: ./power_analysis_effect_size_cumulative_dist.tsv
