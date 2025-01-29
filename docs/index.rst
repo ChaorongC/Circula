@@ -43,4 +43,5 @@ Contents
    qc
    power
    mesa
+   analysis
    api

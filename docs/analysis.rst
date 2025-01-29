@@ -1,6 +1,11 @@
 Basic analysis
 ==========
 
+   .. image:: ../images/analysis_tba.png
+      :alt: Basic analysis TBA
+      :width: 90%
+      :align: center
+
 Principal component analysis (PCA)
 ------------
 
