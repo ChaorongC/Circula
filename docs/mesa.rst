@@ -28,4 +28,4 @@ The ``--clf`` option can be used to specify the classifier(s) to be used for the
    :file: ./ mesa_modality_performance.tsv
    :header-rows: 1
    :align: center
-   :delim: $
+   :delim: \t
