@@ -1,5 +1,5 @@
 """
-Lumache - Python library for cooks and food lovers.
+Under development
 
 This is a Python docstring, we can use reStructuredText syntax here!
 
