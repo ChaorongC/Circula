@@ -12,6 +12,7 @@ Methylation distribution
    .. image:: ../images/qc_methylation_dist.png
       :alt: Methyaltion distribution plot
       :width: 60%
+      :align: center
 
 Fragment length distribution
 ----------------------------
@@ -30,6 +31,7 @@ The ``--clip-r1`` and ``--clip-r2`` flags are optional and should be identical t
    .. image:: ../images/qc_fragment_dist.png
       :alt: fragment length distribution plot
       :width: 60%
+      :align: center
 
 Dinucleotide frequency
 ----------------------
@@ -47,3 +49,4 @@ Reference ``-r`` is required for dinucleotide frequency calculation. The ``-f`` 
    .. image:: ../images/qc_dinucleotide_dist.png
       :alt: dinucleotide frequency distribution plot
       :width: 60%
+      :align: center

@@ -61,6 +61,7 @@ The follwing example shows how to estimate the power of biomarkers of 400 sample
 .. image:: ../images/usage_power.png
    :alt: Power analysis example
    :width: 60%
+   :align: center
    
 
 
