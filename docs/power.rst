@@ -12,17 +12,12 @@ The follwing example shows how to estimate the power of biomarkers of 400 sample
    # Sample size=400, effect size=0.05, significance threshold= 2.7e-08
    circula power -o ./output -s 400 -e 0.05 --step-size 1000 -@ 10
 
-.. image:: ../images/usage_power.png
-   :alt: Power analysis example
-   :width: 60%
-   :align: center
 
 .. figure:: ../images/usage_power.png
-   :class: with-border
    :alt: Power analysis example
    :align: center
-   :width: 60%
-   
+   :width: 70%
+
    power_analysis_ecdf_plot.png.
 
 .. csv-table:: power_analysis_effect_size_cumulative_dist.tsv
