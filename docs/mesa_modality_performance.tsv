@@ -1,0 +1,5 @@
+	classifier_roc_auc_mean (RFC,LR,SVC)	classifier_roc_auc_std (RFC,LR,SVC)	best_classifier, idx	best_roc_auc_mean
+Occupancy	[0.8779 0.8789 0.8892]	[0.1251 0.1357 0.128 ]	('SVC', 2)	0.8892
+WPS	[0.8746 0.8728 0.8818]	[0.1287 0.1387 0.1294]	('SVC', 2)	0.8818
+DHS meth	[0.7789 0.7864 0.7906]	[0.162  0.1467 0.1474]	('SVC', 2)	0.7906
+CGI meth	[0.7768 0.7284 0.7291]	[0.1618 0.1641 0.1671]	('RandomForestClassifier', 0)	0.7768
